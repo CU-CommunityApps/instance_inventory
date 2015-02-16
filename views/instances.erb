@@ -1,5 +1,21 @@
-<% instances.each do |instance| %>
-  <article class='instance'>
-    <b><%= instance.item.attributes['name'] %>:</b>
-  </article>
-<% end %>
+<table>
+	
+	<tr>
+		<th>Name</th>
+		<th>Instance(s)</th>
+		<th>Cname</th>
+		<th>EIP</th>
+	</tr>
+	
+	<% instances.each do |instance| %>
+		<% if instance.item.attributes['group'].nil? %>
+			<tr>
+				<td><%= instance.item.attributes['name'] %></td>
+				<td><%= instance.item.attributes['instances'].to_a.join(",") %></td>
+				<td><%= instance.item.attributes['cname'] %></td>
+				<td><%= instance.item.attributes['elastic_ip'] %></td>
+			</tr>
+		<% end %>
+	<% end %>
+	</tr>
+</table>
