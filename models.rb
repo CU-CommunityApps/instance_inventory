@@ -13,4 +13,12 @@ class Instance
     Instance.new(TABLES['environments'].items.at(name))
   end
   
+  def get_instance_info(instance)
+    begin
+      EC2.instances[instance]
+    rescue
+      nil
+    end
+  end
+  
 end

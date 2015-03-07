@@ -4,6 +4,7 @@
 		<th>Name</th>
 		<th>Instance(s)</th>
 		<th>Cname</th>
+		<th>Private IP</th>
 		<th>EIP</th>
 	</tr>
 	
@@ -13,6 +14,17 @@
 				<td><%= instance.item.attributes['name'] %></td>
 				<td><%= instance.item.attributes['instances'].to_a.join(",") %></td>
 				<td><%= instance.item.attributes['cname'] %></td>
+				<td>
+				<%=
+				  begin 
+  				  instance_info = instance.get_instance_info(instance.item.attributes['instances'].to_a[0])
+  				  if !instance_info.nil?
+  				    instance_info.private_ip_address
+  				  end 
+			    rescue
+			    end
+				%>
+				</td>
 				<td><%= instance.item.attributes['elastic_ip'] %></td>
 			</tr>
 		<% end %>
