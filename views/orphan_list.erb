@@ -1,0 +1,22 @@
+<table>
+	
+	<tr>
+		<th>Name</th>
+		<th>Instance(s)</th>
+		<th>Launch Time</th>
+		<th>Instance type</th>
+		<th>Kernel ID</th>
+	</tr>
+	
+	<% instances.each do |instance| %>
+		<tr>
+			<td><%= instance.tags["Name"] %></td>
+			<td><%= instance.id %></td>
+			<td><%= instance.launch_time %></td>
+			<td><%= instance.instance_type %></td>
+			<td><%= instance.kernel_id %></td>
+		</tr>
+		<% end %>
+	<% end %>
+	</tr>
+</table>

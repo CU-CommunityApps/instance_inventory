@@ -1,4 +1,4 @@
-<%= erb :instances, locals: {instances: Instance.all} %>
+<%= erb :orphan_list, locals: {instances: Instance.get_instances()} %>
 <br>
 
 

@@ -21,4 +21,12 @@ class Instance
     end
   end
   
+  def get_instances()
+    begin
+      EC2.instances
+    rescue
+      nil
+    end
+  end
+
 end
