@@ -7,6 +7,10 @@ get '/' do
   erb :home
 end
 
+get '/orphans' do
+  erb :orphans
+end
+
 get '/styles.css' do
   sass :styles
 end
